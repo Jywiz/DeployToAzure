@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= 'A list of affordable electric guitars'
+  p Here you can find good electric guitars, most of which are your basic run of the mill stratocasters. But even so the basic guitars are just perfect for beginners!
+  p The prices again range from cheap to expensive, but all of the guitars here are still top quality.
+  ul
+    each guitar in guitars
+      li= guitar.model + ': ' + guitar.price
