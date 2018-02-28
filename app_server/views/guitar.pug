@@ -1,8 +1,10 @@
 extends layout
 
 block content
+  br
   h1= 'A list of affordable acoustic guitars'
   p Here are excellent acoustic guitars for beginners, with prices ranging from cheap but awesome to expensive and more awesome!
+  br
   ul
     each guitar in guitars
       li= guitar.model + ': ' + guitar.price
