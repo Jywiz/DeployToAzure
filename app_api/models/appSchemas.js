@@ -4,5 +4,5 @@ const mongoose = require('mongoose');
 const aguitarSchema = new mongoose.Schema({model:String, price:String});
 const eguitarSchema = new mongoose.Schema({model:String, price:String});
 
-mongoose.model('guitar', aguitarSchema);
-mongoose.model('eguitar', eguitarSchema);
+mongoose.model('aguitar', aguitarSchema, 'aguitar');
+mongoose.model('eguitar', eguitarSchema, 'eguitar');

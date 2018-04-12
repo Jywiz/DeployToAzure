@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb://<jemmu>:<6E2804KM>@ds012178.mlab.com:12178/mean_database';
+const dbURI = 'mongodb://jemmu:databasepassword@ds012178.mlab.com:12178/mean_database';
 
 mongoose.connect(dbURI);
 
