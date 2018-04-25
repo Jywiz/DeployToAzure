@@ -1,13 +1,31 @@
+const request = require('request');
+const apiURL = require('./apiURLs');
+
 const guitarslist = function(req, res) {
-  res.render('eguitar', {
-    guitars:
-    [
-        {model: 'Fender Jimi Hendrix Strat', price:'799€'},
-        {model: 'Fender Squier Bullet Strat', price:'125€'},
-        {model: 'Gibson Les Paul Pete Townshend Deluxe', price:'2 222€'},
-        {model: 'Epiphone Les Paul Standard', price:'599€'},
-        {model: 'ESP LTD EC-1000VB/Duncan', price:'835€'},
-    ]});
+  const path = '/api/eguitar';
+  const requestOptions = {
+    url : apiURL.server + path,
+    method : 'GET',
+    json : {},
+    qs : {}
+  };
+
+  request (
+    requestOptions,
+    function (err, response, body) {
+      if (err) {
+        res.render('error', {message: err.message});
+      } else if (response.statusCode !== 200) {
+        res.render('error', {message: 'Error accessing API: ' + response.statusMessage + " (" + response.statusCode + ")"});
+      } else if (!(body instanceof Array)) {
+        res.render('error', {message: 'Unexpexted response data'});
+      } else if (!body.length) {
+        res.render('error', {message: 'No documents in collection'});
+      } else {
+        res.render('eguitar',  {models: body});
+      }
+    }
+  );
 };
 module.exports = {
   guitarslist
