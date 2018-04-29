@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .row
+    h4 Add your own guitar!
+  form(action="", method="post")
+    .form-group.row
+      label Model
+        input.form-control(name="model")
+    .form.group.row
+      label Price
+        input.form-control(name="price")
+    .form.group.row
+      button.btn-primary Add
