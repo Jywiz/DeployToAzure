@@ -6,7 +6,7 @@ const showForm = function(req, res) {
 };
 
 const addData = function(req, res) {
-    const path = 'api/guitar'
+    const path = '/api/guitar'
 
     const postdata = {
       model: req.body.model,
@@ -19,7 +19,7 @@ const addData = function(req, res) {
       json : postdata
     };
 
-    request (
+    request(
         requestOptions,
         function (err, response) {
             if (response.statusCode === 201) {
